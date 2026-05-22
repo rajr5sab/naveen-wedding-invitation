@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Naveen & Senthamizh | Wedding Invitation</title>
+    
+    <!-- Open Graph Meta Tags for beautiful WhatsApp Link Previews -->
+    <meta property="og:title" content="Naveen & Senthamizh | Wedding Invitation" />
+    <meta property="og:description" content="We are getting married! Join us on May 31st, 2026 to celebrate our special day." />
+    <meta property="og:image" content="./couple.jpg" />
+    <meta property="og:type" content="website" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wedding-bg': '#FAF9F6', 
+                        'wedding-gold': '#D4AF37', 
+                        'wedding-dark': '#2C3E50',
+                    },
+                    fontFamily: {
+                        'serif': ['"Cormorant Garamond"', 'serif'],
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'cursive': ['"Great Vibes"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FAF9F6;
+            overflow-x: hidden;
+            color: #2C3E50;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF9F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        /* Edge-attached Semi-circle (D-shape) frames */
+        .groom-frame {
+            border-radius: 0 9999px 9999px 0; /* Flat on left, curved on right */
+            box-shadow: 15px 0 30px -10px rgba(0, 0, 0, 0.15);
+            border: 8px solid white;
+            border-left: none; /* Flush to the screen edge */
+        }
+
+        .bride-frame {
+            border-radius: 9999px 0 0 9999px; /* Flat on right, curved on left */
+            box-shadow: -15px 0 30px -10px rgba(0, 0, 0, 0.15);
+            border: 8px solid white;
+            border-right: none; /* Flush to the screen edge */
+        }
+
+        /* Initial load animations */
+        .fade-in-up {
+            animation: fadeInUp 1.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .pulse-slow {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+
+        /* Map container styling */
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-wedding-gold selection:text-white">
+
+    <!-- SECTION 1: COVER PAGE -->
+    <section class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+            <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-wedding-gold blur-3xl mix-blend-multiply"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-rose-200 blur-3xl mix-blend-multiply"></div>
+        </div>
+
+        <div class="z-10 text-center px-6 fade-in-up w-full max-w-2xl">
+            <p class="font-sans tracking-widest uppercase text-xs md:text-base text-wedding-gold mb-4">You are cordially invited</p>
+            <h1 class="font-cursive text-5xl md:text-7xl text-wedding-dark mb-6 mt-2 leading-tight">
+                Naveen <br><span class="text-4xl md:text-6xl text-wedding-gold">&</span><br> Senthamizh selvi
+            </h1>
+            <p class="font-serif italic text-xl md:text-2xl text-gray-600 mt-4 mb-10">We are getting married!</p>
+            
+            <div class="animate-bounce mt-12 text-wedding-gold">
+                <p class="font-sans text-xs uppercase tracking-widest mb-2">Scroll to our story</p>
+                <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE STORY (Sticky Scroll Parallax) -->
+    <section id="story-section" class="relative w-full h-[300vh]">
+        <div class="sticky top-0 w-full h-screen overflow-hidden bg-wedding-bg flex items-center justify-center">
+            <div class="relative w-full h-full flex flex-row items-center justify-between"> 
+
+                <!-- GROOM: Left Edge (Width increased on mobile for clarity) -->
+                <div class="absolute left-0 top-[8%] md:top-[15%] w-[85%] md:w-[45%] lg:w-[35%] flex flex-col items-start transition-all duration-300 z-20">
+                    <img id="groom-img" src="./groom.jpg" alt="Groom" onerror="this.src='https://placehold.co/400x500/2C3E50/D4AF37?text=Groom+Photo'" class="groom-frame w-full aspect-[4/5] object-cover object-center transition-opacity duration-300" style="opacity: 1;">
+                    
+                    <div id="groom-text" class="pl-4 md:pl-12 mt-4 w-[90%] transition-all duration-500 bg-white/90 md:bg-transparent py-4 md:py-0 pr-4 md:pr-0 rounded-r-xl md:rounded-none backdrop-blur-md md:backdrop-blur-none shadow-lg md:shadow-none" style="opacity: 1; transform: translateY(0);">
+                        <h3 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-wedding-gold mb-1">The Groom</h3>
+                        <h2 class="font-serif text-2xl md:text-3xl text-wedding-dark font-semibold">R Naveen Kumar</h2>
+                        <p class="font-sans text-xs md:text-sm text-gray-600 mt-2 italic leading-relaxed">"He searched the world for a rare gem, only to find her."</p>
+                    </div>
+                </div>
+
+                <!-- BRIDE: Right Edge (Width increased on mobile for clarity) -->
+                <div class="absolute right-0 bottom-[8%] md:bottom-[15%] w-[85%] md:w-[45%] lg:w-[35%] flex flex-col items-end transition-all duration-300 z-10">
+                    <img id="bride-img" src="./bride.jpg" alt="Bride" onerror="this.src='https://placehold.co/400x500/2C3E50/D4AF37?text=Bride+Photo'" class="bride-frame w-full aspect-[4/5] object-cover object-center transition-opacity duration-300" style="opacity: 0;">
+                    
+                    <div id="bride-text" class="pr-4 md:pr-12 mt-4 text-right w-[90%] transition-all duration-500 bg-white/90 md:bg-transparent py-4 md:py-0 pl-4 md:pl-0 rounded-l-xl md:rounded-none backdrop-blur-md md:backdrop-blur-none shadow-lg md:shadow-none" style="opacity: 0; transform: translateY(20px);">
+                        <h3 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-wedding-gold mb-1">The Bride</h3>
+                        <h2 class="font-serif text-2xl md:text-3xl text-wedding-dark font-semibold">R Senthamizh selvi</h2>
+                        <p class="font-sans text-xs md:text-sm text-gray-600 mt-2 italic leading-relaxed">"She was just around the corner, waiting patiently for him to find her."</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: VENUE & DETAILS -->
+    <section class="relative w-full min-h-screen bg-white py-16 md:py-20 px-4 md:px-6 flex flex-col items-center z-30 shadow-[0_-20px_50px_rgba(0,0,0,0.05)]">
+        
+        <!-- Couple Photo -->
+        <div class="w-full max-w-4xl mx-auto mb-16 relative">
+            <div class="absolute inset-0 border-2 border-wedding-gold translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4 rounded-xl"></div>
+            <img src="./couple.jpg" alt="The Couple" onerror="this.src='https://placehold.co/1000x600/FAF9F6/D4AF37?text=Couple+Photo'" class="relative z-10 w-full h-[350px] sm:h-[450px] md:h-[600px] object-cover object-center rounded-xl shadow-2xl">
+        </div>
+
+        <!-- SET OF EVENT BOXES -->
+        <div class="max-w-4xl w-full -mt-24 md:-mt-32 relative z-20 flex flex-col gap-4 md:gap-6 px-1 md:px-2">
+            
+            <!-- 1 to 4: Grid for Date, Time, Venue, Location -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                <!-- Box 1: Date -->
+                <div class="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-6 md:p-8 flex flex-col items-center text-center border border-gray-100">
+                    <svg class="w-7 h-7 md:w-8 md:h-8 text-wedding-gold mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <h3 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mb-2">Date</h3>
+                    <p class="font-serif font-semibold text-2xl md:text-3xl text-wedding-dark">Sunday, May 31st<br>2026</p>
+                </div>
+                
+                <!-- Box 2: Time -->
+                <div class="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-6 md:p-8 flex flex-col items-center text-center border border-gray-100">
+                    <svg class="w-7 h-7 md:w-8 md:h-8 text-wedding-gold mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mb-2">Time</h3>
+                    <p class="font-serif font-semibold text-2xl md:text-3xl text-wedding-dark mt-auto mb-auto">11:00 AM<br><span class="text-base md:text-lg text-wedding-gold font-sans font-medium">Onwards</span></p>
+                </div>
+
+                <!-- Box 3: Venue -->
+                <div class="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-6 md:p-8 flex flex-col items-center text-center border border-gray-100">
+                    <svg class="w-7 h-7 md:w-8 md:h-8 text-wedding-gold mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1v1H9V7zm5 0h1v1h-1V7zm-5 4h1v1H9v-1zm5 0h1v1h-1v-1z"></path></svg>
+                    <h3 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mb-2">Venue</h3>
+                    <p class="font-serif font-semibold text-xl md:text-2xl text-wedding-dark">Malliga Kannan<br>Thirumana Mandapam</p>
+                </div>
+
+                <!-- Box 4: Location -->
+                <div class="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-6 md:p-8 flex flex-col items-center text-center border border-gray-100">
+                    <svg class="w-7 h-7 md:w-8 md:h-8 text-wedding-gold mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <h3 class="font-sans text-[10px] md:text-xs uppercase tracking-widest text-gray-400 mb-2">Location</h3>
+                    <p class="font-serif text-lg md:text-xl text-gray-700 mt-auto mb-auto">Udayarpalayam, Attur<br>Tamil Nadu 636102</p>
+                </div>
+            </div>
+
+            <!-- Box 5: Map & Directions Box -->
+            <div class="bg-white rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] p-3 md:p-4 border border-gray-100 flex flex-col items-center w-full mt-2">
+                <div class="w-full h-[250px] md:h-[350px] bg-gray-200 rounded-xl overflow-hidden map-container mb-4">
+                    <iframe src="https://maps.google.com/maps?q=Malliga%20kannan%20thirumana%20mandapam,%20Attur,%20Tamil%20Nadu&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/cjxFhxgCFi51HBiWA" target="_blank" class="inline-flex items-center px-6 md:px-8 py-3 bg-wedding-dark text-white rounded-full font-sans uppercase tracking-widest text-[10px] md:text-xs hover:bg-wedding-gold transition-all duration-300 shadow-lg mb-2">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                    Get Directions
+                </a>
+            </div>
+
+            <!-- Box 6: Celebrating Wordings & Countdown -->
+            <div class="bg-wedding-dark rounded-2xl shadow-[0_15px_40px_rgba(0,0,0,0.2)] py-12 md:py-16 px-4 border border-wedding-gold/20 flex flex-col items-center text-center relative overflow-hidden mt-4">
+                <!-- Decorative background pattern -->
+                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#D4AF37 1px, transparent 1px); background-size: 20px 20px;"></div>
+                
+                <!-- Celebrating Wordings -->
+                <h2 class="font-cursive text-3xl md:text-5xl text-wedding-gold mb-2 md:mb-3 relative z-10 leading-tight">We can't wait to celebrate!</h2>
+                <p class="font-sans text-[9px] md:text-xs uppercase tracking-widest text-gray-300 mb-8 md:mb-12 relative z-10 px-4">Counting down the moments until we say "I Do"</p>
+                
+                <!-- Timer -->
+                <div class="flex justify-center items-center gap-2 sm:gap-4 md:gap-8 font-sans relative z-10">
+                    <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
+                        <span id="cd-days" class="text-3xl sm:text-4xl md:text-6xl font-serif text-wedding-gold font-semibold tracking-wider">00</span>
+                        <span class="text-[8px] sm:text-[10px] md:text-sm uppercase tracking-widest mt-1 md:mt-2 text-gray-300">Days</span>
+                    </div>
+                    <span class="text-xl sm:text-2xl md:text-4xl text-wedding-gold/50 -mt-4 md:-mt-6 pulse-slow">:</span>
+                    <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
+                        <span id="cd-hours" class="text-3xl sm:text-4xl md:text-6xl font-serif text-wedding-gold font-semibold tracking-wider">00</span>
+                        <span class="text-[8px] sm:text-[10px] md:text-sm uppercase tracking-widest mt-1 md:mt-2 text-gray-300">Hours</span>
+                    </div>
+                    <span class="text-xl sm:text-2xl md:text-4xl text-wedding-gold/50 -mt-4 md:-mt-6 pulse-slow">:</span>
+                    <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
+                        <span id="cd-mins" class="text-3xl sm:text-4xl md:text-6xl font-serif text-wedding-gold font-semibold tracking-wider">00</span>
+                        <span class="text-[8px] sm:text-[10px] md:text-sm uppercase tracking-widest mt-1 md:mt-2 text-gray-300">Mins</span>
+                    </div>
+                    <span class="text-xl sm:text-2xl md:text-4xl text-wedding-gold/50 -mt-4 md:-mt-6 pulse-slow hidden sm:block">:</span>
+                    <div class="flex-col items-center w-14 sm:w-16 md:w-24 hidden sm:flex">
+                        <span id="cd-secs" class="text-3xl sm:text-4xl md:text-6xl font-serif text-wedding-gold font-semibold tracking-wider">00</span>
+                        <span class="text-[8px] sm:text-[10px] md:text-sm uppercase tracking-widest mt-1 md:mt-2 text-gray-300">Secs</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="mt-16 md:mt-20 pb-8 text-center">
+            <p class="font-cursive text-4xl md:text-5xl text-wedding-gold">With love,</p>
+            <p class="font-serif text-xl md:text-3xl mt-3 md:mt-4 text-gray-500 tracking-wide">Naveen & Senthamizh</p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const storySection = document.getElementById('story-section');
+            const groomImg = document.getElementById('groom-img');
+            const groomText = document.getElementById('groom-text');
+            const brideImg = document.getElementById('bride-img');
+            const brideText = document.getElementById('bride-text');
+
+            // --- STICKY SCROLL PARALLAX LOGIC (Mobile Optimized) ---
+            function handleScroll() {
+                const rect = storySection.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                let progress = 0;
+                
+                if (rect.top <= 0) {
+                    const totalScrollable = rect.height - viewportHeight;
+                    const scrolled = Math.abs(rect.top);
+                    progress = scrolled / totalScrollable;
+                }
+
+                progress = Math.max(0, Math.min(1, progress));
+
+                // Redesigned fade thresholds so large mobile images don't overlap awkwardly
+                if (progress < 0.2) {
+                    // Phase 1: Groom fully visible
+                    groomImg.style.opacity = 1;
+                    groomText.style.opacity = 1;
+                    groomText.style.transform = 'translateY(0)';
+                    brideImg.style.opacity = 0;
+                    brideText.style.opacity = 0;
+                    brideText.style.transform = 'translateY(20px)';
+                } 
+                else if (progress >= 0.2 && progress < 0.45) {
+                    // Phase 2: Groom fades out completely before bride appears
+                    const phaseProgress = (progress - 0.2) / 0.25; 
+                    groomImg.style.opacity = Math.max(0, 1 - (phaseProgress * 1.5)); 
+                    groomText.style.opacity = Math.max(0, 1 - (phaseProgress * 2)); 
+                    brideImg.style.opacity = 0;
+                    brideText.style.opacity = 0;
+                } 
+                else if (progress >= 0.45 && progress <= 1) {
+                    // Phase 3: Bride fades in
+                    const phaseProgress = Math.min(1, (progress - 0.45) / 0.3); 
+                    groomImg.style.opacity = 0;
+                    groomText.style.opacity = 0;
+                    brideImg.style.opacity = phaseProgress;
+                    brideText.style.opacity = phaseProgress;
+                    brideText.style.transform = `translateY(${20 - (phaseProgress * 20)}px)`; 
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll(); // Trigger once on load
+
+            // --- COUNTDOWN TIMER LOGIC ---
+            // Target Date: May 31, 2026 at 11:00:00 AM
+            const countDownDate = new Date("May 31, 2026 11:00:00").getTime();
+            
+            const daysEl = document.getElementById("cd-days");
+            const hoursEl = document.getElementById("cd-hours");
+            const minsEl = document.getElementById("cd-mins");
+            const secsEl = document.getElementById("cd-secs");
+
+            if (daysEl && hoursEl && minsEl) {
+                const timerInterval = setInterval(function() {
+                    const now = new Date().getTime();
+                    const distance = countDownDate - now;
+
+                    // If countdown is finished
+                    if (distance < 0) {
+                        clearInterval(timerInterval);
+                        daysEl.innerHTML = "00";
+                        hoursEl.innerHTML = "00";
+                        minsEl.innerHTML = "00";
+                        if(secsEl) secsEl.innerHTML = "00";
+                        return;
+                    }
+
+                    // Math for days, hours, minutes, seconds
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    // Add leading zeros if necessary
+                    daysEl.innerHTML = days < 10 ? "0" + days : days;
+                    hoursEl.innerHTML = hours < 10 ? "0" + hours : hours;
+                    minsEl.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+                    if(secsEl) secsEl.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
